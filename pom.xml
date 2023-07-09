@@ -19,7 +19,7 @@
     <skipITs>true</skipITs>
     <!-- Third party dependencies -->
     <surefire-plugin.version>3.1.2</surefire-plugin.version>
-    <project.jacoco-maven-plugin.version>0.8.8</project.jacoco-maven-plugin.version>
+    <project.jacoco-maven-plugin.version>0.8.10</project.jacoco-maven-plugin.version>
     <!-- SonarCloud configuration -->
     <sonar.organization>upa-io</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
