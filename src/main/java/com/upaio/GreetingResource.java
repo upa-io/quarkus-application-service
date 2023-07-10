@@ -1,13 +1,12 @@
 package com.upaio;
 
+import jakarta.ws.rs.Path;
 import org.jboss.logging.Logger;
 
 import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-
-@Path("/hello")
+@Path("api")
 public class GreetingResource {
 
     private static final Logger LOG = Logger.getLogger(GreetingResource.class);
