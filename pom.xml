@@ -60,12 +60,6 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.owasp</groupId>
-      <artifactId>dependency-check-maven</artifactId>
-      <version>${owasp.dependency-check-maven.version}</version>
-    </dependency>
-
   </dependencies>
   <build>
     <plugins>
@@ -138,6 +132,18 @@
             <phase>prepare-package</phase>
             <goals>
               <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>${owasp.dependency-check-maven.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
             </goals>
           </execution>
         </executions>
