@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - 'main'
+    paths:
+        - 'src/main/java/**/*.java'
+        - 'src/test/java/**/*.java'
+        - '**/*.properties'
+        - 'pom.xml'
 jobs:
   quality-scan:
     runs-on: ubuntu-latest
