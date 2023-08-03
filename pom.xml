@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.upaio</groupId>
   <artifactId>cloud-microservice-api</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <properties>
     <!-- Internal configuration -->
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
@@ -59,6 +59,11 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+     <groupId>io.quarkus</groupId>
+     <artifactId>quarkus-jacoco</artifactId>
+     <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
@@ -115,30 +120,6 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${project.jacoco-maven-plugin.version}</version>
-        <executions>
-        <execution>
-          <id>prepare-agent</id>
-          <goals>
-            <goal>prepare-agent</goal>
-          </goals>
-        </execution>
-        <execution>
-          <id>report</id>
-          <goals>
-            <goal>report</goal>
-          </goals>
-          <configuration>
-            <formats>
-              <format>XML</format>
-            </formats>
-          </configuration>
-        </execution>
-      </executions>
       </plugin>
     </plugins>
   </build>
