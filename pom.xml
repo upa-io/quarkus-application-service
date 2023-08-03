@@ -20,7 +20,7 @@
     <sonar.organization>upa-io</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <surefire-plugin.version>3.1.2</surefire-plugin.version>
-    <sonar.coverage.jacoco.xmlReportPaths>target/jacoco-report</sonar.coverage.jacoco.xmlReportPaths>
+    <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/quarkus-application-service/target/jacoco-report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
   <dependencyManagement>
     <dependencies>
