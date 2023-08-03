@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.upaio</groupId>
   <artifactId>cloud-microservice-api</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <properties>
     <!-- Internal configuration -->
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
@@ -14,7 +14,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>3.2.0.Final</quarkus.platform.version>
+    <quarkus.platform.version>3.2.3.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <!-- Third party dependencies -->
     <sonar.organization>upa-io</sonar.organization>
@@ -59,6 +59,11 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+     <groupId>io.quarkus</groupId>
+     <artifactId>quarkus-jacoco</artifactId>
+     <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
@@ -113,38 +118,6 @@
                 <maven.home>${maven.home}</maven.home>
               </systemPropertyVariables>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${project.jacoco-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-check-maven</artifactId>
-        <version>${owasp.dependency-check-maven.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>
