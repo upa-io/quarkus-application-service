@@ -11,6 +11,9 @@ public class GreetingResource {
 
     private static final Logger LOG = Logger.getLogger(GreetingResource.class);
 
+    /**
+     * @return
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String hello() {

@@ -7,16 +7,27 @@ import java.util.logging.Logger;
 @Path("/logging")
 public class LoggingResource {
 
+    /**
+     * @param logger
+     * @return
+     */
     private static Level getLogLevel(Logger logger) {
-        for (Logger current = logger; current != null;) {
+        Logger current = logger;
+        while (current != null) {
             Level level = current.getLevel();
-            if (level != null)
+            if (level != null) {
                 return level;
+            }
             current = current.getParent();
         }
         return Level.INFO;
     }
 
+    /**
+     * @param loggerName
+     * @param level
+     * @return
+     */
     @GET
     @Path("/{logger}")
     @Produces("text/plain")
@@ -25,8 +36,15 @@ public class LoggingResource {
         Logger logger = Logger.getLogger(loggerName);
 
         // Change the log-level if requested
-        if (level != null && level.length() > 0)
-            logger.setLevel(Level.parse(level));
+        if (level != null && level.length() > 0) {
+            try {
+                Level logLevel = Level.parse(level.toUpperCase());
+                logger.setLevel(logLevel);
+            } catch (IllegalArgumentException e) {
+                // Manejar el caso en que se proporciona un nivel de registro no válido
+                logger.warning("Nivel de log no válido proporcionado: " + level);
+            }
+        }
 
         // Return the current log-level
         return getLogLevel(logger);
