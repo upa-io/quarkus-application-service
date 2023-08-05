@@ -16,9 +16,18 @@ public class GreetingResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String hello() {
+    public String getHello() {
         LOG.debug("Hi from debug");
         LOG.info("Hi from info");
         return "Hello from RESTEasy Reactive";
+    }
+
+    /**
+     * @return
+     */
+    @POST
+    @Produces
+    public String postHello(String greeting){
+        return "Hello from RESTEasy Reactive".concat(greeting);
     }
 }
