@@ -12,6 +12,7 @@ public class ServiceRequestGreetings implements Serializable {
 
     @JsonCreator
     public ServiceRequestGreetings() {
+        this.greeting = greeting;
     }
 
     public String getGreeting() {

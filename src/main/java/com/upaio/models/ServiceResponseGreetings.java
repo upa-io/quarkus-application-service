@@ -13,6 +13,7 @@ public class ServiceResponseGreetings implements Serializable {
 
     @JsonCreator
     public ServiceResponseGreetings() {
+        this.greeting = greeting;
     }
 
     public String getGreeting() {

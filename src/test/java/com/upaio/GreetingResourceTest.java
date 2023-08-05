@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.equalTo;
 class GreetingResourceTest {
 
     @Test
-    public void testGetHelloEndpoint() {
+    void testGetHelloEndpoint() {
         String greeting = "Hello from RESTEasy Reactive";
         given()
                 .queryParam("greeting", greeting)
@@ -23,7 +23,7 @@ class GreetingResourceTest {
     }
 
     @Test
-    public void testPostHelloEndpoint() {
+     void testPostHelloEndpoint() {
         ServiceRequestGreetings requestGreetings = new ServiceRequestGreetings();
         requestGreetings.setGreeting("Hello from the test");
         given()
