@@ -1,10 +1,11 @@
 package com.upaio;
 
-import jakarta.ws.rs.Path;
+import com.upaio.models.ServiceRequestGreetings;
+import com.upaio.models.ServiceResponseGreetings;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 @Path("api")
 public class GreetingResource {
@@ -16,18 +17,26 @@ public class GreetingResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getHello() {
-        LOG.debug("Hi from debug");
-        LOG.info("Hi from info");
-        return "Hello from RESTEasy Reactive";
+    public Response getHello(@QueryParam("greeting") String greeting) {
+        LOG.debug("Started method getHello");
+        LOG.info("Started method getHello");
+        ServiceResponseGreetings serviceResponseGreetings = new ServiceResponseGreetings();
+        serviceResponseGreetings.setGreeting(greeting);
+
+        return Response.ok(serviceResponseGreetings).build();
     }
 
     /**
      * @return
      */
     @POST
-    @Produces
-    public String postHello(String greeting){
-        return "Hello from RESTEasy Reactive".concat(greeting);
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response postHello(ServiceRequestGreetings serviceRequestPostGreetings){
+        LOG.debug("Started method postHello");
+        LOG.info("Started method postHello");
+        ServiceResponseGreetings serviceResponseGreetings = new ServiceResponseGreetings();
+        serviceResponseGreetings.setGreeting(serviceRequestPostGreetings.getGreeting());
+        return Response.ok(serviceResponseGreetings).build();
     }
 }
