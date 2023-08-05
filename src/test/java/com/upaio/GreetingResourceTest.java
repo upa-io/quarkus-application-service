@@ -13,7 +13,6 @@ class GreetingResourceTest {
 
     @Test
     public void testGetHelloEndpoint() {
-        RestAssured.baseURI = "http://localhost:8080";
         String greeting = "Hello from RESTEasy Reactive";
         given()
                 .queryParam("greeting", greeting)
@@ -25,9 +24,6 @@ class GreetingResourceTest {
 
     @Test
     public void testPostHelloEndpoint() {
-        RestAssured.baseURI = "http://localhost:8080";
-
-        // Crea el objeto ServiceRequestGreetings con el campo "greeting"
         ServiceRequestGreetings requestGreetings = new ServiceRequestGreetings();
         requestGreetings.setGreeting("Hello from the test");
         given()
