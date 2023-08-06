@@ -20,6 +20,7 @@
     <sonar.organization>upa-io</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <surefire-plugin.version>3.1.2</surefire-plugin.version>
+    <project.lombok.version>1.18.28</project.lombok.version>
     <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/jacoco-report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
   <dependencyManagement>
@@ -64,7 +65,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.28</version>
+      <version>${project.lombok.version}</version>
       <scope>provided</scope>
     </dependency>
 
