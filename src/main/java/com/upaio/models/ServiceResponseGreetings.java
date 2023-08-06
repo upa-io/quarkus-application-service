@@ -1,26 +1,19 @@
 package com.upaio.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.io.Serializable;
-
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@RequiredArgsConstructor(onConstructor=@__(@JsonCreator(mode = JsonCreator.Mode.PROPERTIES)))
 public class ServiceResponseGreetings implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "Saludo", example = "Hola")
     private String greeting;
 
-    @JsonCreator
-    public ServiceResponseGreetings() {
-        this.greeting = greeting;
-    }
-
-    public String getGreeting() {
-        return greeting;
-    }
-
-    public void setGreeting(String greeting) {
-        this.greeting = greeting;
-    }
 }
