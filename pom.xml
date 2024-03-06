@@ -19,7 +19,7 @@
     <!-- Third party dependencies -->
     <sonar.organization>upa-io</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    <surefire-plugin.version>3.1.2</surefire-plugin.version>
+    <surefire-plugin.version>3.2.5</surefire-plugin.version>
     <project.lombok.version>1.18.28</project.lombok.version>
     <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/jacoco-report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
